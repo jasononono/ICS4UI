@@ -66,7 +66,6 @@ void draw() {
     time_passed += dt;
 
     background(22, 24, 28);
-    draw_text();
     draw_path();
 
     if (state.equals("draw")) {
@@ -93,6 +92,8 @@ void draw() {
         display_time += dt; // update display time
 
     }
+
+    draw_text(); // draw text on top of everything else
 }
 
 void draw_text() { // display all text info
@@ -101,6 +102,7 @@ void draw_text() { // display all text info
 
     text("Click and drag to sketch a path", 15, 30);
     text("If the approximation is rough,\ntry changing COMPONENTS or SUBDIVISIONS.", 15, 70);
+    text("Path length: " + nf(path_length) + "/" + nf(MAX_POINTS), 15, 150);
 }
 
 void draw_path() { // display the user's sketch
